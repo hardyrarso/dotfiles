@@ -17,7 +17,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'sheerun/vim-polyglot'
 
 " misc
-Plug 'chrisbra/vim-commentary'
+Plug 'scrooloose/nerdcommenter'
 
 " = commands =
 Plug 'tpope/vim-surround'
@@ -51,6 +51,11 @@ set splitbelow
 set splitright                                                                                      
 " set textwrapping                                                                                  
 set tw=101
+
+" NERDCommenter
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDDefaultAlign = 'left'
 
 " Gif config
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
