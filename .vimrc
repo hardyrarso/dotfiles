@@ -4,15 +4,15 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin()                                                                                                                                                                                       
+" directory view
+Plug 'vbundles/nerdtree'
 
 " syntax
 Plug 'sheerun/vim-polyglot'
 
 " misc
 Plug 'jiangmiao/auto-pairs'
-
-" directory view
-Plug 'vbundles/nerdtree'
+Plug 'chrisbra/vim-commentary'
 
 call plug#end()                                                                                     
 filetype plugin indent on                                                                           
