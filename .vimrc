@@ -55,7 +55,6 @@ set tw=101
 " NERDCommenter
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
-let g:NERDDefaultAlign = 'left'
 
 " Gif config
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
@@ -65,6 +64,8 @@ map <Leader>k <Plug>(easymotion-k)
 nmap s <Plug>(easymotion-overwin-f2)
 
 let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
+let g:EasyMotion_smartcase = 1
+
 
 " CrtlP.vim settings
 let g:ctrlp_custom_ignore = {
@@ -81,4 +82,4 @@ set updatetime=100
 
 " file specific settings
 " javascript
-au FileType javascript setl ts=2
+au FileType javascript setl ts=2 sts=2 sw=2
