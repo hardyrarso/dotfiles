@@ -1,0 +1,48 @@
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+call plug#begin()                                                                                                                                                                                       
+
+" syntax
+Plug 'sheerun/vim-polyglot'
+
+" misc
+Plug 'jiangmiao/auto-pairs'
+
+" directory view
+Plug 'vbundles/nerdtree'
+
+call plug#end()                                                                                     
+filetype plugin indent on                                                                           
+" show existing tab with 4 spaces width                                                             
+set tabstop=4                                                                                       
+" when indenting with '>', use 4 spaces width                                                       
+set shiftwidth=4                                                                                    
+" On pressing tab, insert 4 spaces                                                                  
+set expandtab                                                                                       
+" On opening new split window, open to the right                                                    
+set splitright                                                                                      
+" show numbers on the left                                                                          
+set number                                                                                          
+" set ruler value and color                                                                         
+set colorcolumn=100                                                                                 
+highlight ColorColumn ctermbg=7                                                                     
+" highlight line position of cursor and color                                                       
+set cursorline                                                                                      
+highlight CursorLine ctermbg=8                                                                      
+" set syntax highlighting                                                                           
+syntax on                                                                                           
+colorscheme sublimemonokai                                                                          
+" set highlight search                                                                              
+set hlsearch                                                                                        
+" set split direction                                                                               
+set splitbelow                                                                                      
+set splitright                                                                                      
+" set textwrapping                                                                                  
+set tw=101
+
+" file specific settings
+" javascript
+au FileType javascript setl ts=2
