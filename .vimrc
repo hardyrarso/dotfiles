@@ -6,6 +6,7 @@ endif
 call plug#begin()                                                                                                                                                                                       
 " directory view
 Plug 'vbundles/nerdtree'
+Plug 'ctrlpvim/ctrlp.vim'
 
 " syntax
 Plug 'sheerun/vim-polyglot'
@@ -42,6 +43,16 @@ set splitbelow
 set splitright                                                                                      
 " set textwrapping                                                                                  
 set tw=101
+
+" CrtlP.vim settings
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](node_modules)|(\.(git|hg|svn))$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+
+" auto-pair settings
+let g:AutoPairsShortcutFastWrap = '<M-e>'
 
 " file specific settings
 " javascript
