@@ -16,7 +16,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'sheerun/vim-polyglot'
 
 " misc
-Plug 'jiangmiao/auto-pairs'
 Plug 'chrisbra/vim-commentary'
 
 call plug#end()                                                                                     
