@@ -4,7 +4,11 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin()                                                                                                                                                                                       
-" directory view
+" git
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+
+"directory view
 Plug 'vbundles/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
 
@@ -53,6 +57,9 @@ let g:ctrlp_custom_ignore = {
 
 " auto-pair settings
 let g:AutoPairsShortcutFastWrap = '<M-e>'
+
+" update refresh rate for gitgutter
+set updatetime=100
 
 " file specific settings
 " javascript
