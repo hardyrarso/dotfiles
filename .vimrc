@@ -4,6 +4,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin()                                                                                                                                                                                       
+" = integrations =
 " git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -17,6 +18,10 @@ Plug 'sheerun/vim-polyglot'
 
 " misc
 Plug 'chrisbra/vim-commentary'
+
+" = commands =
+Plug 'tpope/vim-surround'
+Plug 'easymotion/vim-easymotion'
 
 call plug#end()                                                                                     
 filetype plugin indent on                                                                           
