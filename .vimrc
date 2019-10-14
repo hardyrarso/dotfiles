@@ -33,6 +33,7 @@ call plug#end()
 filetype plugin indent on                                                                           
 map <C-j> <PageDown>
 map <C-k> <PageUp>
+map <C-n> :set rnu!<CR>
 " show existing tab with 4 spaces width                                                             
 set tabstop=4                                                                                       
 " when indenting with '>', use 4 spaces width                                                       
