@@ -3,11 +3,17 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-call plug#begin()                                                                                                                                                                                       
+call plug#begin()                                                                                                                                                                                     " = language =
+Plug 'fatih/vim-go'
+
 " = integrations =
 " git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+
+" interface
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 "directory view
 Plug 'vbundles/nerdtree'
@@ -54,6 +60,46 @@ set splitright
 " set textwrapping                                                                                  
 set tw=101
 
+" vim-go
+" need to manually turn on syntax highlighting
+let g:go_highlight_structs = 1 
+let g:go_highlight_methods = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+" airline
+let g:airline_theme='simple'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+"
+" " airline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
 " NERDCommenter
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
