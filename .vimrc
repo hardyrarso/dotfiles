@@ -3,8 +3,12 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-call plug#begin()                                                                                                                                                                                     " = language =
-Plug 'fatih/vim-go'
+call plug#begin()
+" = language =
+" only install vim-go if version is at least 800
+if v:version > 799
+    Plug 'fatih/vim-go'
+endif
 
 " = integrations =
 " git
