@@ -28,6 +28,7 @@ Plug 'sheerun/vim-polyglot'
 
 " misc
 Plug 'scrooloose/nerdcommenter'
+Plug 'SirVer/ultisnips'
 
 " = commands =
 Plug 'tpope/vim-surround'
@@ -38,6 +39,9 @@ filetype plugin indent on
 map <C-j> <PageDown>
 map <C-k> <PageUp>
 map <C-n> :set rnu!<CR>
+inoremap p <C-p>
+inoremap [ <Esc>
+nnoremap <silent> ,, :nohlsearch<CR>
 " show existing tab with 4 spaces width                                                             
 set tabstop=4                                                                                       
 " when indenting with '>', use 4 spaces width                                                       
@@ -121,6 +125,13 @@ nmap S <Plug>(easymotion-overwin-f2)
 let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
 let g:EasyMotion_smartcase = 1
 
+" Ultisnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsUsePythonVersion = 3
+let g:UltiSnipsSnippetDirectories=[$HOME."/.vim/plugged/ultisnips/UltiSnips"]
+let g:UltiSnipsSnippetsDir = $HOME.'/.vim/UltiSnips'
 
 " CrtlP.vim settings
 let g:ctrlp_custom_ignore = {
