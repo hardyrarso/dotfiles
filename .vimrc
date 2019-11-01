@@ -14,13 +14,18 @@ Plug 'airblade/vim-gitgutter'
 " interface
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+" Plug 'junegunn/goyo.vim'
+" Plug 'godlygeek/tabular'
+" Plug 'plasticboy/vim-markdown'
+Plug 'erichdongubler/vim-sublime-monokai'
 
 "directory view
-Plug 'vbundles/nerdtree'
+" Plug 'vbundles/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
 
-" syntax
+" code display
 Plug 'sheerun/vim-polyglot'
+Plug 'reedes/vim-colors-pencil'
 
 " misc
 Plug 'scrooloose/nerdcommenter'
@@ -141,6 +146,9 @@ let g:AutoPairsShortcutFastWrap = '<M-e>'
 
 " update refresh rate for gitgutter
 set updatetime=100
+
+set wildmode=longest,list,full
+set wildmenu
 
 " file specific settings
 " javascript
