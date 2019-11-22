@@ -18,9 +18,9 @@ Plug 'airblade/vim-gitgutter'
 " interface
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" Plug 'junegunn/goyo.vim'
-" Plug 'godlygeek/tabular'
-" Plug 'plasticboy/vim-markdown'
+Plug 'junegunn/goyo.vim'
+Plug 'godlygeek/tabular'
+Plug 'gabrielelana/vim-markdown'
 Plug 'erichdongubler/vim-sublime-monokai'
 
 "directory view
@@ -44,9 +44,11 @@ filetype plugin indent on
 map <C-j> <PageDown>
 map <C-k> <PageUp>
 map <C-n> :set rnu!<CR>
-inoremap p <C-p>
-inoremap [ <Esc>
 nnoremap <silent> ,, :nohlsearch<CR>
+inoremap <C-d> <Del>
+inoremap <Nul> <C-p>
+nnoremap Y y$
+nnoremap * *``
 " show existing tab with 4 spaces width                                                             
 set tabstop=4                                                                                       
 " when indenting with '>', use 4 spaces width                                                       
@@ -129,6 +131,24 @@ nmap S <Plug>(easymotion-overwin-f2)
 
 let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
 let g:EasyMotion_smartcase = 1
+
+" Goyo
+let g:goyo_width = 120
+function! s:goyo_enter()
+    colorscheme pencil
+endfunction
+
+function! s:goyo_leave()
+    colorscheme sublimemonokai
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+command! GG Goyo
+
+" vim-markdown
+let g:vim_markdown_folding_disabled = 1
+let g:markdown_enable_spell_checking = 0
 
 " Ultisnips
 let g:UltiSnipsExpandTrigger="<tab>"
