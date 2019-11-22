@@ -41,9 +41,9 @@ filetype plugin indent on
 map <C-j> <PageDown>
 map <C-k> <PageUp>
 map <C-n> :set rnu!<CR>
-inoremap p <C-p>
 nnoremap <silent> ,, :nohlsearch<CR>
 inoremap <C-d> <Del>
+inoremap <Nul> <C-p>
 nnoremap Y y$
 nnoremap * *``
 " show existing tab with 4 spaces width                                                             
