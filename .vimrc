@@ -30,6 +30,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 " code display
 Plug 'sheerun/vim-polyglot'
 Plug 'reedes/vim-colors-pencil'
+Plug 'valloric/matchtagalways'
 
 " misc
 Plug 'scrooloose/nerdcommenter'
@@ -74,7 +75,7 @@ set hlsearch
 set splitbelow                                                                                      
 set splitright                                                                                      
 " set textwrapping                                                                                  
-set tw=101
+set tw=119
 
 " vim-go
 " need to manually turn on syntax highlighting
@@ -133,7 +134,7 @@ let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
 let g:EasyMotion_smartcase = 1
 
 " Goyo
-let g:goyo_width = 120
+let g:goyo_width = 119
 function! s:goyo_enter()
     colorscheme pencil
 endfunction
@@ -144,7 +145,7 @@ endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
-command! GG Goyo
+command! GG Goyo | set tw=119
 
 " vim-markdown
 let g:vim_markdown_folding_disabled = 1
@@ -160,7 +161,7 @@ let g:UltiSnipsSnippetsDir = $HOME.'/.vim/UltiSnips'
 
 " CrtlP.vim settings
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](node_modules)|(\.(git|hg|svn))$',
+  \ 'dir':  '\v[\/](node_modules|vendor)|(\.(git|hg|svn))$',
   \ 'file': '\v\.(exe|so|dll)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
@@ -174,6 +175,17 @@ set updatetime=100
 set wildmode=longest,list,full
 set wildmenu
 
+let g:mta_filetypes = {
+    \ 'html' : 1,
+    \ 'php' : 1,
+    \ 'xhtml' : 1,
+    \ 'xml' : 1,
+    \ 'jinja' : 1,
+    \ 'js': 1,
+    \ 'jsx': 1,
+    \}
 " file specific settings
 " javascript
 au FileType javascript setl ts=2 sts=2 sw=2
+" php
+au FileType php setl ts=4 sts=4 sw=4
