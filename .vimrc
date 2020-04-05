@@ -50,6 +50,7 @@ inoremap <C-d> <Del>
 inoremap <Nul> <C-p>
 nnoremap Y y$
 nnoremap * *``
+inoremap ;; <Esc>
 " show existing tab with 4 spaces width                                                             
 set tabstop=4                                                                                       
 " when indenting with '>', use 4 spaces width                                                       
