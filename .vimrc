@@ -147,7 +147,7 @@ endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 command! GG Goyo | set tw=119
-command! gtf GoTestFunc
+command! GTF GoTestFunc
 
 " vim-markdown
 let g:vim_markdown_folding_disabled = 1
