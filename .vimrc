@@ -35,6 +35,7 @@ Plug 'valloric/matchtagalways'
 " misc
 Plug 'scrooloose/nerdcommenter'
 Plug 'SirVer/ultisnips'
+Plug 'tpope/vim-repeat'
 
 " = commands =
 Plug 'tpope/vim-surround'
