@@ -164,7 +164,7 @@ let g:UltiSnipsSnippetsDir = $HOME.'/.vim/UltiSnips'
 
 " CrtlP.vim settings
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](node_modules|vendor)|(\.(git|hg|svn))$',
+  \ 'dir':  '\v[\/](node_modules|vendor|out|build)|(\.(git|hg|svn))$',
   \ 'file': '\v\.(exe|so|dll)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
