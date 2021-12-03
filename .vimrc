@@ -23,6 +23,12 @@ Plug 'godlygeek/tabular'
 Plug 'gabrielelana/vim-markdown'
 Plug 'erichdongubler/vim-sublime-monokai'
 
+" autocomplete
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" formatting
+Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
+
 "directory view
 " Plug 'vbundles/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -31,6 +37,10 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'reedes/vim-colors-pencil'
 Plug 'valloric/matchtagalways'
+
+Plug 'pangloss/vim-javascript'    " JavaScript support
+Plug 'leafgarland/typescript-vim' " TypeScript syntax
+Plug 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
 
 " misc
 Plug 'scrooloose/nerdcommenter'
@@ -42,16 +52,28 @@ Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
 
 call plug#end()                                                                                     
+
+" general mappings
+let mapleader = " "
 filetype plugin indent on                                                                           
 map <C-j> <PageDown>
 map <C-k> <PageUp>
 map <C-n> :set rnu!<CR>
-nnoremap <silent> ,, :nohlsearch<CR>
+
+" insert mode mappings
 inoremap <C-d> <Del>
-inoremap <Nul> <C-p>
+inoremap <Nul> <C-n>
+inoremap <leader>; <Esc>
+
+" normal mode mappings
+nnoremap <silent> ,, :nohlsearch<CR>
 nnoremap Y y$
 nnoremap * *``
-inoremap ;; <Esc>
+nnoremap <leader>q :q<CR>
+nnoremap <leader>w :w<CR>
+nnoremap <leader>wq :wq<CR>
+nnoremap <leader>wqa :wqa<CR>
+nnoremap <C-t> :tabe
 " show existing tab with 4 spaces width                                                             
 set tabstop=4                                                                                       
 " when indenting with '>', use 4 spaces width                                                       
@@ -79,6 +101,9 @@ set splitright
 " set textwrapping                                                                                  
 set tw=119
 
+" CoC extensions
+let g:coc_global_extensions = ['coc-tsserver', 'coc-go']
+
 " vim-go
 " need to manually turn on syntax highlighting
 let g:go_highlight_structs = 1 
@@ -87,6 +112,8 @@ let g:go_highlight_functions = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 autocmd FileType go nmap <leader>gt  <Plug>(go-test)
+autocmd FileType go nmap <leader>gtf  <Plug>(go-test-func)
+autocmd FileType go nmap <leader>gv  <Plug>(go-vet)
 
 " airline
 let g:airline_theme='simple'
@@ -149,13 +176,14 @@ autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 command! GG Goyo | set tw=119
 command! GTF GoTestFunc
+command! GV GoVet
 
 " vim-markdown
 let g:vim_markdown_folding_disabled = 1
 let g:markdown_enable_spell_checking = 0
 
 " Ultisnips
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<c-t>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsUsePythonVersion = 3
@@ -174,6 +202,18 @@ let g:AutoPairsShortcutFastWrap = '<M-e>'
 
 " update refresh rate for gitgutter
 set updatetime=100
+highlight clear SignColumn
+
+" coc settings
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+nnoremap <leader>e  :e<CR>
+
+" vim-prettier
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
+let g:prettier#autoformat_config_present = 1
 
 set wildmode=longest,list,full
 set wildmenu
