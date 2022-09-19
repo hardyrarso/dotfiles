@@ -54,16 +54,27 @@ Plug 'easymotion/vim-easymotion'
 call plug#end()                                                                                     
 
 " general mappings
+
+" disable ex mode
+map q: <Nop>
+nnoremap Q <nop>
+
+:autocmd InsertEnter * set timeoutlen=100
+:autocmd InsertLeave * set timeoutlen=1000
 let mapleader = " "
 filetype plugin indent on                                                                           
-map <C-j> <PageDown>
-map <C-k> <PageUp>
+map <C-j> <C-d>
+map <C-k> <C-u>
 map <C-n> :set rnu!<CR>
 
 " insert mode mappings
 inoremap <C-d> <Del>
 inoremap <Nul> <C-n>
 inoremap <leader>; <Esc>
+inoremap <leader>;q <Esc>:q<CR>
+inoremap <leader>;w <Esc>:w<CR>
+inoremap <leader>;wq <Esc>:wq<CR>
+inoremap <leader>wqa <Esc>:wqa<CR>
 
 " normal mode mappings
 nnoremap <silent> ,, :nohlsearch<CR>
@@ -73,7 +84,15 @@ nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>wq :wq<CR>
 nnoremap <leader>wqa :wqa<CR>
-nnoremap <C-t> :tabe
+nnoremap <leader>q :q<CR>
+nnoremap <C-t> :tabe 
+nnoremap <leader>g :G<CR>
+
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+
+vnoremap <leader>p "_dP
+
 " show existing tab with 4 spaces width                                                             
 set tabstop=4                                                                                       
 " when indenting with '>', use 4 spaces width                                                       
@@ -83,7 +102,8 @@ set expandtab
 " On opening new split window, open to the right                                                    
 set splitright                                                                                      
 " show numbers on the left                                                                          
-set number                                                                                          
+set rnu                                                                                          
+set number
 " set ruler value and color                                                                         
 set colorcolumn=100                                                                                 
 highlight ColorColumn ctermbg=7                                                                     
