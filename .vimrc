@@ -30,7 +30,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 
 "directory view
-" Plug 'vbundles/nerdtree'
+Plug 'scrooloose/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
 
 " code display
@@ -51,6 +51,8 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
 
+"  devicons need to be loaded absolutely last for some reason according to the installation
+Plug 'ryanoasis/vim-devicons'
 call plug#end()                                                                                     
 
 " general mappings
@@ -65,7 +67,7 @@ let mapleader = " "
 filetype plugin indent on                                                                           
 map <C-j> <C-d>
 map <C-k> <C-u>
-map <C-n> :set rnu!<CR>
+" map <C-n> :set rnu!<CR>
 
 " insert mode mappings
 inoremap <C-d> <Del>
@@ -80,6 +82,7 @@ inoremap <leader>wqa <Esc>:wqa<CR>
 nnoremap <silent> ,, :nohlsearch<CR>
 nnoremap Y y$
 nnoremap * *``
+nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>wq :wq<CR>
@@ -121,6 +124,8 @@ set splitright
 " set textwrapping                                                                                  
 set tw=119
 
+set encoding=UTF-8
+
 " CoC extensions
 let g:coc_global_extensions = ['coc-tsserver', 'coc-go']
 
@@ -131,8 +136,17 @@ let g:go_highlight_methods = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+let g:go_metalinter_enabled = []
+
+let g:go_metalinter_command = 'golangci-lint'
+let g:go_metalinter_autosave = 1
+  let g:go_metalinter_autosave_enabled = ['vet', 'revive', 'staticcheck']
+
+" let g:go_debug=['shell-commands']
+
 autocmd FileType go nmap <leader>gt  <Plug>(go-test)
 autocmd FileType go nmap <leader>gtf  <Plug>(go-test-func)
+autocmd FileType go nmap <leader>gml  <Plug>(go-metalinter)
 autocmd FileType go nmap <leader>gv  <Plug>(go-vet)
 
 " airline
