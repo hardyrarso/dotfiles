@@ -252,6 +252,12 @@ let g:prettier#autoformat_config_present = 1
 set wildmode=longest,list,full
 set wildmenu
 
+" folding config
+set foldmethod=indent
+set foldnestmax=10
+set nofoldenable
+set foldlevel=2
+
 let g:mta_filetypes = {
     \ 'html' : 1,
     \ 'php' : 1,
