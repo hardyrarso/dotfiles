@@ -132,3 +132,6 @@ export GOBIN=$HOME/go/bin
 export PATH=$PATH:$GOPATH
 export PATH=$PATH:$GOBIN
 
+
+eval "$(atuin init zsh)"
+eval "$(atuin init zsh)"
