@@ -78,7 +78,7 @@ plugins=(
     golang
     httpie
     ubuntu
-
+    zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -133,5 +133,6 @@ export PATH=$PATH:$GOPATH
 export PATH=$PATH:$GOBIN
 
 
+export ATUIN_NOBIND="true"
 eval "$(atuin init zsh)"
-eval "$(atuin init zsh)"
+bindkey '^r' _atuin_search_widget
