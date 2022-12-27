@@ -112,6 +112,8 @@ nnoremap N Nzzzv
 vmap J :m '>+1<CR>gv=gv
 vmap K :m '<-2<CR>gv=gv
 
+" awesome remap to replace the word under cursor
+nnoremap <leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
 " show existing tab with 4 spaces width                                                             
 set tabstop=4                                                                                       
 " when indenting with '>', use 4 spaces width                                                       
