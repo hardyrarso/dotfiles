@@ -46,6 +46,8 @@ Plug 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
 Plug 'scrooloose/nerdcommenter'
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-repeat'
+Plug 'markonm/traces.vim'
+
 
 " = commands =
 Plug 'tpope/vim-surround'
