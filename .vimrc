@@ -65,8 +65,12 @@ nnoremap Q <nop>
 :autocmd InsertLeave * set timeoutlen=1000
 let mapleader = " "
 filetype plugin indent on                                                                           
-map <C-j> <C-d>
-map <C-k> <C-u>
+
+" remap half page jump to center cursor
+map <C-j> <C-d>zz
+map <C-k> <C-u>zz
+map <C-d> <C-d>zz
+map <C-u> <C-u>zz
 " map <C-n> :set rnu!<CR>
 
 " insert mode mappings
@@ -91,10 +95,22 @@ nnoremap <leader>q :q<CR>
 nnoremap <C-t> :tabe 
 nnoremap <leader>g :G<CR>
 
+" genius remap to not overwrite buffer on paste and delete
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
 
 vnoremap <leader>p "_dP
+
+" keep cursor still when doing J
+nnoremap J mzJ`z
+
+" keep cursor center when moving between search targets
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" awesome remap to move selected lines up/down
+vmap J :m '>+1<CR>gv=gv
+vmap K :m '<-2<CR>gv=gv
 
 " show existing tab with 4 spaces width                                                             
 set tabstop=4                                                                                       
