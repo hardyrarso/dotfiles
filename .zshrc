@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnosterrd"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -136,3 +136,5 @@ export PATH=$PATH:$GOBIN
 export ATUIN_NOBIND="true"
 eval "$(atuin init zsh)"
 bindkey '^r' _atuin_search_widget
+
+if [ -e /home/hardy/.nix-profile/etc/profile.d/nix.sh ]; then . /home/hardy/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
