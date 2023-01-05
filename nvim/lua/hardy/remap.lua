@@ -37,13 +37,10 @@ vim.keymap.set("n", "<leader>wq", ":wq<CR>")
 vim.keymap.set("n", "<leader>wqa", ":wqa<CR>")
 vim.keymap.set("n", "<leader>q", ":q<CR>")
 
--- vim.keymap.set("n", <silent> ,, :nohlsearch<CR>
+vim.keymap.set("n", "<silent>,,", ":nohlsearch<CR>")
 
 -- do not jump after searching for word undor cursor
 vim.keymap.set("n", "*", "*``")
-
--- NERDTREE toggle
-vim.keymap.set("n", "<leader>n", ":NERDTreeToggle<CR>")
 
 -- genius remap to not overwrite buffer on paste and delete
 vim.keymap.set("n", "<leader>d", "_d")
