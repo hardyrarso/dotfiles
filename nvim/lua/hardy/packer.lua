@@ -10,10 +10,15 @@ return require('packer').startup(function(use)
   use 'airblade/vim-gitgutter'
 
   -- interface
-  use {
+  use { -- statusline
       'nvim-lualine/lualine.nvim',
-      requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+      requires = { 'kyazdani42/nvim-web-devicons' }
   }
+  use { -- file explorer
+  'nvim-tree/nvim-tree.lua',
+  tag = 'nightly' -- optional, updated every week. (see issue #1193)
+  }
+  use 'nvim-tree/nvim-web-devicons'
 
   -- file navigation
     -- Fuzzy Finder (files, lsp, etc)

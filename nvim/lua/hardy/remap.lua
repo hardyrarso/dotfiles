@@ -6,7 +6,9 @@ vim.g.maplocalleader = ' '
 vim.g.mapleader = " "
 
 -- Open file exploer
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>pv", function ()
+   vim.cmd('NvimTreeToggle')
+end)
 
 -- disable ex mode
 vim.keymap.set("n", "q:", "<Nop>")

@@ -150,7 +150,7 @@ _G.packer_plugins = {
     url = "https://github.com/williamboman/mason.nvim"
   },
   ["monokai.nvim"] = {
-    config = { "\27LJ\2\nV\0\0\3\0\4\0\t6\0\0\0009\0\1\0'\2\2\0B\0\2\0016\0\0\0009\0\1\0'\2\3\0B\0\2\1K\0\1\0\29colorscheme monokai_soda\14syntax on\bcmd\bvim\0" },
+    config = { "\27LJ\2\nQ\0\0\3\0\4\0\t6\0\0\0009\0\1\0'\2\2\0B\0\2\0016\0\0\0009\0\1\0'\2\3\0B\0\2\1K\0\1\0\24colorscheme monokai\14syntax on\bcmd\bvim\0" },
     loaded = true,
     path = "/home/hardy/.local/share/nvim/site/pack/packer/start/monokai.nvim",
     url = "https://github.com/tanvirtin/monokai.nvim"
@@ -170,6 +170,11 @@ _G.packer_plugins = {
     path = "/home/hardy/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-tree.lua"] = {
+    loaded = true,
+    path = "/home/hardy/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
+    url = "https://github.com/nvim-tree/nvim-tree.lua"
+  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/home/hardy/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
@@ -183,10 +188,9 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
   },
   ["nvim-web-devicons"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/home/hardy/.local/share/nvim/site/pack/packer/opt/nvim-web-devicons",
-    url = "https://github.com/kyazdani42/nvim-web-devicons"
+    loaded = true,
+    path = "/home/hardy/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -241,7 +245,7 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Config for: monokai.nvim
 time([[Config for monokai.nvim]], true)
-try_loadstring("\27LJ\2\nV\0\0\3\0\4\0\t6\0\0\0009\0\1\0'\2\2\0B\0\2\0016\0\0\0009\0\1\0'\2\3\0B\0\2\1K\0\1\0\29colorscheme monokai_soda\14syntax on\bcmd\bvim\0", "config", "monokai.nvim")
+try_loadstring("\27LJ\2\nQ\0\0\3\0\4\0\t6\0\0\0009\0\1\0'\2\2\0B\0\2\0016\0\0\0009\0\1\0'\2\3\0B\0\2\1K\0\1\0\24colorscheme monokai\14syntax on\bcmd\bvim\0", "config", "monokai.nvim")
 time([[Config for monokai.nvim]], false)
 -- Conditional loads
 time([[Conditional loading of telescope-fzf-native.nvim]], true)
