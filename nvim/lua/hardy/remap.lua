@@ -66,10 +66,14 @@ vim.keymap.set("n", "<leader>r", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left>
 vim.keymap.set("v", "<leader>r", "y:%s/\\<<C-r>\\>/<C-r>/gI<Left><Left><Left>")
 
 -- Language maps
--- vim.api.nvim_create_autocmd("FileType", {
---     pattern = "go",
---     callback = function()
---         var  
---         vim.keymap.set("n", "<leader>gtf", ":echo doot")
---     end
--- })
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "go",
+    callback = function()
+        -- lmao this works! But there should be a better way of doing this
+        -- by directly calling the plugin function vs calling it via a normal
+        -- mode command. This is the best I can do for now
+        vim.keymap.set("n", "<leader>gtf", function ()
+            vim.cmd('GoTestFunc')
+        end)
+    end
+})
