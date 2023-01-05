@@ -1,31 +1,50 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
 -- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
+vim.cmd.packadd('packer.nvim')
 
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  -- git
+  use 'tpope/vim-fugitive'
+  use 'airblade/vim-gitgutter'
+
+  -- interface
   use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.0',
-	  -- or                            , branch = '0.1.x',
-	  requires = { {'nvim-lua/plenary.nvim'} }
+      'nvim-lualine/lualine.nvim',
+      requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
 
-  use({
-	  'erichdongubler/vim-sublime-monokai',
-	  config = function()
-		  vim.cmd('syntax on')
-		  vim.cmd('colorscheme sublimemonokai')
-	  end
-  })
+  -- file navigation
+    -- Fuzzy Finder (files, lsp, etc)
+  use {
+      'nvim-telescope/telescope.nvim',
+      branch = '0.1.x',
+      requires = { 'nvim-lua/plenary.nvim' }
+  }
 
-  use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
-  use('nvim-treesitter/playground')
-  use('theprimeagen/harpoon')
-  use('mbbill/undotree')
-  use('tpope/vim-fugitive')
+  -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
+  use {
+      'nvim-telescope/telescope-fzf-native.nvim',
+      run = 'make',
+      cond = vim.fn.executable 'make' == 1
+  }
+
+  use({'nvim-treesitter/nvim-treesitter',
+      run = function()
+          pcall(require('nvim-treesitter.install').update { with_sync = true })
+      end
+  })
+  use { -- Additional text objects via treesitter
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    after = 'nvim-treesitter',
+  }
+  use 'nvim-treesitter/playground'
+  use 'theprimeagen/harpoon'
+
+
+  -- undo history
+  use 'mbbill/undotree'
 
   use {
 	  'VonHeikemen/lsp-zero.nvim',
@@ -47,8 +66,30 @@ return require('packer').startup(function(use)
 		  {'L3MON4D3/LuaSnip'},
 		  -- Snippet Collection (Optional)
 		  {'rafamadriz/friendly-snippets'},
+          -- Useful status updates for LSP
+          {'j-hui/fidget.nvim'},
+
+          -- Additional lua configuration, makes nvim stuff amazing
+          {'folke/neodev.nvim'},
 	  }
   }
-  use('fatih/vim-go', { run = ':GoUpdateBinaries' })
+
+  use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
+  use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
+
+
+  -- language specific configs
+  -- Go
+  use {'fatih/vim-go',  run = ':GoUpdateBinaries' }
+
+  -- themes
+  use {
+	  'tanvirtin/monokai.nvim',
+	  config = function()
+		  vim.cmd('syntax on')
+		  vim.cmd('colorscheme monokai')
+	  end
+  }
+
 end)
 
