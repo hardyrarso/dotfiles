@@ -12,7 +12,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 local timeout_group = vim.api.nvim_create_augroup('Timeout', {clear = true})
 vim.api.nvim_create_autocmd('InsertEnter', {
     callback = function ()
-        vim.timeoutlen=200
+        vim.timeoutlen=100
     end,
     group = timeout_group,
     pattern = '*',
