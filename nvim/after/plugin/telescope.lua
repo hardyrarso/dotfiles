@@ -42,7 +42,7 @@ require("telescope").setup({
         find_files = {
             theme = "dropdown",
         },
-        old_files = {
+        oldfiles = {
             theme = "dropdown",
         },
         buffers = {
