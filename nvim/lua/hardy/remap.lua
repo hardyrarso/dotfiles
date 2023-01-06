@@ -15,10 +15,10 @@ vim.keymap.set("n", "q:", "<Nop>")
 vim.keymap.set("n", "Q",  "<nop>")
 
 -- remap half page jump to center cursor
-vim.keymap.set("n", "<C-j>", "<C-d>zz")
-vim.keymap.set("n", "<C-k>", "<C-u>zz")
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set({"n", "v"}, "<C-j>", "<C-d>zz")
+vim.keymap.set({"n", "v"}, "<C-k>", "<C-u>zz")
+vim.keymap.set({"n", "v"}, "<C-d>", "<C-d>zz")
+vim.keymap.set({"n", "v"}, "<C-u>", "<C-u>zz")
 -- map <C-n> :set rnu!<CR>
 
 -- nicer delete
@@ -37,7 +37,7 @@ vim.keymap.set("n", "<leader>wq", ":wq<CR>")
 vim.keymap.set("n", "<leader>wqa", ":wqa<CR>")
 vim.keymap.set("n", "<leader>q", ":q<CR>")
 
-vim.keymap.set("n", "<silent>,,", ":nohlsearch<CR>")
+vim.keymap.set("n", ",,", ":nohl<CR>")
 
 -- do not jump after searching for word undor cursor
 vim.keymap.set("n", "*", "*``")
