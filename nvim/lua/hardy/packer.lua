@@ -81,6 +81,9 @@ return require('packer').startup(function(use)
 
   use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
   use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
+  use 'tpope/vim-surround' -- surround text with things easily
+  use 'tpope/vim-repeat' -- allows repeat for surround
+  use 'honza/vim-snippets' -- snippets templates
 
 
   -- language specific configs
