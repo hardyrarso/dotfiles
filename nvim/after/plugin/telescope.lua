@@ -24,7 +24,7 @@ vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iag
 
 require("telescope").setup({
     defaults = {
-        file_ignore_patterns = { "go.sum" },
+        file_ignore_patterns = { "go.sum", "mock", "docs" },
         mappings = {
             i = {
                 ["<leader>;"] = actions.close,

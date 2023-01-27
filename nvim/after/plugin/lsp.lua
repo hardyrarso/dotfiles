@@ -27,6 +27,7 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
   ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
   ['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
   ['<C-i>'] = cmp.mapping.confirm({ select = true }),
+  ['<CR>'] = function(fallback) fallback() end, -- disables <CR> as accept suggestion 
   ["<C-Space>"] = cmp.mapping.complete(),
 })
 
@@ -36,7 +37,18 @@ cmp_mappings['<Tab>'] = nil
 cmp_mappings['<S-Tab>'] = nil
 
 lsp.setup_nvim_cmp({
-  mapping = cmp_mappings
+  mapping = cmp_mappings,
+  enabled = function()
+      -- disable completion in comments
+      local context = require 'cmp.config.context'
+      -- keep command mode completion enabled when cursor is in a comment
+      if vim.api.nvim_get_mode().mode == 'c' then
+        return true
+      else
+        return not context.in_treesitter_capture("comment") 
+          and not context.in_syntax_group("Comment")
+      end
+    end
 })
 
 lsp.set_preferences({
