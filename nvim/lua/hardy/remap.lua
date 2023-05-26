@@ -43,9 +43,9 @@ vim.keymap.set("n", ",,", ":nohl<CR>")
 vim.keymap.set("n", "*", "*``")
 
 -- genius remap to not overwrite buffer on paste and delete
-vim.keymap.set("n", "<leader>d", "_d")
-vim.keymap.set("v", "<leader>d", "_d")
-vim.keymap.set("v", "<leader>p", "_dP")
+vim.keymap.set("n", "<leader>d", [["_d]])
+vim.keymap.set("v", "<leader>d", [["_d]])
+vim.keymap.set("v", "<leader>p", [["_dP]])
 
 -- keep cursor still when doing J
 vim.keymap.set("n", "J", "mzJ`z")
@@ -76,3 +76,8 @@ vim.api.nvim_create_autocmd("FileType", {
         end)
     end
 })
+
+-- way to show full error message when error goes off screen
+vim.keymap.set("n", "<leader>e", function ()
+    vim.diagnostic.open_float(0, {scope="line"})
+end)
