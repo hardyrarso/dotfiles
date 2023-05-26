@@ -20,6 +20,9 @@ vim.keymap.set('n', '<leader>sw', function()
 vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
+vim.keymap.set('n', '<leader>fu', builtin.lsp_references, { desc = '[F]ind [U]sage' })
+vim.keymap.set('n', '<leader>ic', builtin.lsp_incoming_calls, { desc = '[I]ncoming [C]alls' })
+vim.keymap.set('n', '<leader>gd', builtin.lsp_definitions, { desc = '[G]o [T]o definition' })
 
 
 require("telescope").setup({
