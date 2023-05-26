@@ -44,3 +44,5 @@ vim.o.smartcase = true
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 
+-- Set default split to the right
+vim.opt.splitright = true
