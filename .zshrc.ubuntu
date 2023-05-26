@@ -131,6 +131,9 @@ alias cputemp='watch -n 1 sensors'
 # Quick alias to show RAM
 alias ram='watch -n 1 free -m'
 
+# Quick alias to show GPU
+alias gpu='watch -n 1 nvidia-smi'
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -158,3 +161,7 @@ alias cat='bat'
 
 # Alias vim to nvim since we use nvim
 alias vim='nvim'
+
+eval "$(atuin init zsh)"
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
