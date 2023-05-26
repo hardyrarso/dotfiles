@@ -45,7 +45,7 @@ lsp.setup_nvim_cmp({
       if vim.api.nvim_get_mode().mode == 'c' then
         return true
       else
-        return not context.in_treesitter_capture("comment") 
+        return not context.in_treesitter_capture("comment")
           and not context.in_syntax_group("Comment")
       end
     end
@@ -61,13 +61,8 @@ lsp.set_preferences({
     }
 })
 
-lsp.on_attach(function(client, bufnr)
+lsp.on_attach(function(_, bufnr)
   local opts = {buffer = bufnr, remap = false}
-
-  if client.name == "eslint" then
-      vim.cmd.LspStop('eslint')
-      return
-  end
 
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
   vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
